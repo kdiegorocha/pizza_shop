@@ -19,6 +19,11 @@ for (salesdata in all_sales){
 # Use a tidyverse join to join all the data together into one file
 # called sales_data, then run the rest of the code
 
+sales_data <- dataset_1
+for (number in 2:length(all_sales)){
+  get(paste("dataset_", number, sep = "")) -> new_sales_data
+  sales_data <- full_join(sales_data, new_sales_data)
+}
 
 
 ########################################
